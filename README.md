@@ -1,5 +1,8 @@
 # stylelint-declaration-block-no-ignored-properties
 
+[![NPM version](https://img.shields.io/npm/v/stylelint-declaration-block-no-ignored-properties.svg)](https://www.npmjs.com/package/stylelint-declaration-block-no-ignored-properties)
+[![Build Status](https://travis-ci.org/kristerkari/stylelint-declaration-block-no-ignored-properties.svg?branch=master)](https://travis-ci.org/kristerkari/stylelint-declaration-block-no-ignored-properties)
+
 Original rule: [stylelint/declaration-block-no-ignored-properties](https://github.com/stylelint/stylelint/tree/7.13.0/lib/rules/declaration-block-no-ignored-properties).
 
 Disallow property values that are ignored due to another property value in the same rule.
