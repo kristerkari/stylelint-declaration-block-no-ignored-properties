@@ -43,12 +43,12 @@ npm install stylelint-declaration-block-no-ignored-properties
 ```js
 // .stylelintrc
 {
-	"plugins": [
-		"stylelint-declaration-block-no-ignored-properties"
-	],
-	"rules": {
-		"plugin/declaration-block-no-ignored-properties": true,
-	}
+  "plugins": [
+    "stylelint-declaration-block-no-ignored-properties"
+  ],
+  "rules": {
+    "plugin/declaration-block-no-ignored-properties": true,
+  }
 }
 ```
 
