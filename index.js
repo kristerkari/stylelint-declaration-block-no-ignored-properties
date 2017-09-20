@@ -1,7 +1,9 @@
 const matchesStringOrRegExp = require("./utils/matchesStringOrRegExp");
 const postcss = require("postcss");
 const stylelint = require("stylelint");
-const { report, ruleMessages, validateOptions } = stylelint.utils;
+const report = stylelint.utils.report;
+const ruleMessages = stylelint.utils.ruleMessages;
+const validateOptions = stylelint.utils.validateOptions;
 
 const ruleName = "plugin/declaration-block-no-ignored-properties";
 
