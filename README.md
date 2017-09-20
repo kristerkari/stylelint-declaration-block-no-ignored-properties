@@ -35,7 +35,7 @@ The rule complains when it finds:
 ## Installation
 
 ```
-npm install stylelint-declaration-block-no-ignored-properties
+npm install stylelint-declaration-block-no-ignored-properties --save-dev
 ```
 
 ## Usage
