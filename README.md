@@ -1,5 +1,9 @@
 # stylelint-declaration-block-no-ignored-properties
 
+[![NPM version](https://img.shields.io/npm/v/stylelint-declaration-block-no-ignored-properties.svg)](https://www.npmjs.com/package/stylelint-declaration-block-no-ignored-properties)
+[![Build Status](https://travis-ci.org/kristerkari/stylelint-declaration-block-no-ignored-properties.svg?branch=master)](https://travis-ci.org/kristerkari/stylelint-declaration-block-no-ignored-properties)
+[![Build status](https://ci.appveyor.com/api/projects/status/yajvta1q8v2jimjp/branch/master?svg=true)](https://ci.appveyor.com/project/kristerkari/stylelint-declaration-block-no-ignored-properties/branch/master)
+
 Original rule: [stylelint/declaration-block-no-ignored-properties](https://github.com/stylelint/stylelint/tree/7.13.0/lib/rules/declaration-block-no-ignored-properties).
 
 Disallow property values that are ignored due to another property value in the same rule.
@@ -31,7 +35,7 @@ The rule complains when it finds:
 ## Installation
 
 ```
-npm install stylelint-declaration-block-no-ignored-properties
+npm install stylelint-declaration-block-no-ignored-properties --save-dev
 ```
 
 ## Usage
@@ -39,12 +43,12 @@ npm install stylelint-declaration-block-no-ignored-properties
 ```js
 // .stylelintrc
 {
-	"plugins": [
-		"stylelint-declaration-block-no-ignored-properties"
-	],
-	"rules": {
-		"plugin/declaration-block-no-ignored-properties": true,
-	}
+  "plugins": [
+    "stylelint-declaration-block-no-ignored-properties"
+  ],
+  "rules": {
+    "plugin/declaration-block-no-ignored-properties": true,
+  }
 }
 ```
 
