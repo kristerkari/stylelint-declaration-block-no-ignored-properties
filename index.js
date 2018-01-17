@@ -112,49 +112,54 @@ const rule = actual => {
       return;
     }
 
-    const uniqueDecls = {};
-    root.walkDecls(decl => {
-      uniqueDecls[decl.prop] = decl;
-    });
+    root.walkRules(rule => {
+      const uniqueDecls = {};
+      rule.walkDecls(decl => {
+        uniqueDecls[decl.prop] = decl;
+      });
 
-    Object.keys(uniqueDecls).forEach((prop, index) => {
-      const decl = uniqueDecls[prop];
-      const unprefixedProp = postcss.vendor.unprefixed(prop);
-      const unprefixedValue = postcss.vendor.unprefixed(decl.value);
+      function check(prop, index) {
+        const decl = uniqueDecls[prop];
+        const value = decl.value;
+        const unprefixedProp = postcss.vendor.unprefixed(prop);
+        const unprefixedValue = postcss.vendor.unprefixed(value);
 
-      ignored.forEach(ignore => {
-        const matchProperty = matchesStringOrRegExp(
-          unprefixedProp.toLowerCase(),
-          ignore.property
-        );
-        const matchValue = matchesStringOrRegExp(
-          unprefixedValue.toLowerCase(),
-          ignore.value
-        );
+        ignored.forEach(ignore => {
+          const matchProperty = matchesStringOrRegExp(
+            unprefixedProp.toLowerCase(),
+            ignore.property
+          );
+          const matchValue = matchesStringOrRegExp(
+            unprefixedValue.toLowerCase(),
+            ignore.value
+          );
 
-        if (!matchProperty || !matchValue) {
-          return;
-        }
-
-        const ignoredProperties = ignore.ignoredProperties;
-
-        decl.parent.nodes.forEach((node, nodeIndex) => {
-          if (
-            !node.prop ||
-            ignoredProperties.indexOf(node.prop.toLowerCase()) === -1 ||
-            index === nodeIndex
-          ) {
+          if (!matchProperty || !matchValue) {
             return;
           }
 
-          report({
-            message: messages.rejected(node.prop, decl.toString()),
-            node,
-            result,
-            ruleName
+          const ignoredProperties = ignore.ignoredProperties;
+
+          decl.parent.nodes.forEach((node, nodeIndex) => {
+            if (
+              !node.prop ||
+              ignoredProperties.indexOf(node.prop.toLowerCase()) === -1 ||
+              index === nodeIndex
+            ) {
+              return;
+            }
+
+            report({
+              message: messages.rejected(node.prop, decl.toString()),
+              node,
+              result,
+              ruleName
+            });
           });
         });
-      });
+      }
+
+      Object.keys(uniqueDecls).forEach(check);
     });
   };
 };

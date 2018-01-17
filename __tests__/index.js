@@ -133,6 +133,9 @@ testRule(rule, {
     },
     {
       code: "a { display: inline; width: 100px; display: inline-block; }"
+    },
+    {
+      code: ".a { display: inline; width: 100px; display: inline-block; } .b { display: inline; width: 100px; display: inline-block; }"
     }
   ],
 
@@ -144,6 +147,22 @@ testRule(rule, {
       column: 22,
       description:
         "display: inline rules out width, height, margin-top and margin-bottom, and float"
+    },
+    {
+      code: ".a { display: inline; width: 100px; } .b { display: inline; }",
+      message: messages.rejected("width", "display: inline"),
+      line: 1,
+      column: 23,
+      description:
+        "display: inline rules out width, height, margin-top and margin-bottom, and float",
+    },
+    {
+      code: ".a { display: block; width: 100px; } .b { display: inline; width: 100px; }",
+      message: messages.rejected("width", "display: inline"),
+      line: 1,
+      column: 60,
+      description:
+        "display: inline rules out width, height, margin-top and margin-bottom, and float",
     },
     {
       code: "a { dIsPlAy: iNlInE; wIdTh: 100pX; }",
@@ -344,6 +363,13 @@ testRule(rule, {
     },
     {
       code: "a { float: left; vertical-align: baseline; }",
+      message: messages.rejected("vertical-align", "float: left"),
+      line: 1,
+      column: 18,
+      description: "float: left rules out baseline"
+    },
+    {
+      code: "a { float: left; vertical-align: baseline; } a { float: left }",
       message: messages.rejected("vertical-align", "float: left"),
       line: 1,
       column: 18,
