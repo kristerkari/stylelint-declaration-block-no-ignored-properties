@@ -1,4 +1,4 @@
-## HEAD
+## v1.1.0
 
 * Added: support for stylelint 9.
 
