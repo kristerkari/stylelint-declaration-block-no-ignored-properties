@@ -5,6 +5,7 @@
 [![NPM version](https://img.shields.io/npm/v/stylelint-declaration-block-no-ignored-properties.svg)](https://www.npmjs.com/package/stylelint-declaration-block-no-ignored-properties)
 [![Build Status](https://travis-ci.org/kristerkari/stylelint-declaration-block-no-ignored-properties.svg?branch=master)](https://travis-ci.org/kristerkari/stylelint-declaration-block-no-ignored-properties)
 [![Build status](https://ci.appveyor.com/api/projects/status/yajvta1q8v2jimjp/branch/master?svg=true)](https://ci.appveyor.com/project/kristerkari/stylelint-declaration-block-no-ignored-properties/branch/master)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
 
 Original rule: [stylelint/declaration-block-no-ignored-properties](https://github.com/stylelint/stylelint/tree/7.13.0/lib/rules/declaration-block-no-ignored-properties).
 
