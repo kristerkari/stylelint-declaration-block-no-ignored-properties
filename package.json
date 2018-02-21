@@ -26,7 +26,7 @@
     "stylelint": "^8.1.1"
   },
   "peerDependencies": {
-    "stylelint": "^7.0.0 || ^8.0.0"
+    "stylelint": "^7.0.0 || ^8.0.0 || ^9.0.0"
   },
   "engines": {
     "node": ">=4.2.1"
@@ -58,7 +58,7 @@
       "template-curly-spacing": "error"
     }
   },
-  "files": ["index.js", "utils", "README.md"],
+  "files": ["index.js", "utils", "CHANGELOG.md", "README.md"],
   "homepage":
     "https://github.com/kristerkari/stylelint-declaration-block-no-ignored-properties#readme",
   "jest": {
