@@ -135,7 +135,8 @@ testRule(rule, {
       code: "a { display: inline; width: 100px; display: inline-block; }"
     },
     {
-      code: ".a { display: inline; width: 100px; display: inline-block; } .b { display: inline; width: 100px; display: inline-block; }"
+      code:
+        ".a { display: inline; width: 100px; display: inline-block; } .b { display: inline; width: 100px; display: inline-block; }"
     }
   ],
 
@@ -154,15 +155,16 @@ testRule(rule, {
       line: 1,
       column: 23,
       description:
-        "display: inline rules out width, height, margin-top and margin-bottom, and float",
+        "display: inline rules out width, height, margin-top and margin-bottom, and float"
     },
     {
-      code: ".a { display: block; width: 100px; } .b { display: inline; width: 100px; }",
+      code:
+        ".a { display: block; width: 100px; } .b { display: inline; width: 100px; }",
       message: messages.rejected("width", "display: inline"),
       line: 1,
       column: 60,
       description:
-        "display: inline rules out width, height, margin-top and margin-bottom, and float",
+        "display: inline rules out width, height, margin-top and margin-bottom, and float"
     },
     {
       code: "a { dIsPlAy: iNlInE; wIdTh: 100pX; }",
