@@ -1,3 +1,7 @@
+## HEAD
+
+* Breaking change: Dropped Node.js 4 support.
+
 ## v1.1.0
 
 * Added: support for stylelint 9.
