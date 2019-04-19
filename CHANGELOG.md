@@ -1,19 +1,20 @@
-## HEAD
+## v2.0.0
 
-* Breaking change: Dropped Node.js 4 support.
+- Added: support for stylelint version 10.
+- Breaking change: Dropped Node.js 4 support.
 
 ## v1.1.0
 
-* Added: support for stylelint 9.
+- Added: support for stylelint 9.
 
 ## v1.0.2
 
-* Fixed: a bug where a display property in a block would cancel warnings from the previous block. 
+- Fixed: a bug where a display property in a block would cancel warnings from the previous block.
 
 ## v1.0.1
 
-* Fixed: utils folder not being included with the release.
+- Fixed: utils folder not being included with the release.
 
 ## v1.0.0
 
-* Intial release
+- Intial release
