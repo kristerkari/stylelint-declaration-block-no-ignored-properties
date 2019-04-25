@@ -36,7 +36,6 @@ The rule complains when it finds:
 -   `position: static` used with `top`, `right`, `bottom`, `left` or `z-index`.
 -   `position: absolute` used with `float`, `clear` or `vertical-align`.
 -   `position: fixed` used with `float`, `clear` or `vertical-align`.
--   `flex-basis` used with `width` or `height`.
 -   `list-style-type: none` used with `list-style-image`.
 -   `overflow: visible` used with `resize`.
 
