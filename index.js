@@ -116,11 +116,6 @@ const ignored = [
     ignoredProperties: ["float", "clear", "vertical-align"]
   },
   {
-    property: "flex-basis",
-    value: "/^.*$/",
-    ignoredProperties: ["width", "height"]
-  },
-  {
     property: "list-style-type",
     value: "none",
     ignoredProperties: ["list-style-image"]

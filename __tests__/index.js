@@ -592,34 +592,6 @@ testRule(rule, {
       description: "position: absolute rules out float"
     },
     {
-      code: "a { flex-basis: 3px; width: 100px; }",
-      message: messages.rejected("width", "flex-basis: 3px"),
-      line: 1,
-      column: 22,
-      description: "flex-basis rules out width"
-    },
-    {
-      code: "a { flex-basis: auto; width: 100px; }",
-      message: messages.rejected("width", "flex-basis: auto"),
-      line: 1,
-      column: 23,
-      description: "flex-basis rules out width"
-    },
-    {
-      code: "a { flex-basis: 3px; height: 100px; }",
-      message: messages.rejected("height", "flex-basis: 3px"),
-      line: 1,
-      column: 22,
-      description: "flex-basis rules out height"
-    },
-    {
-      code: "a { flex-basis: auto; height: 100px; }",
-      message: messages.rejected("height", "flex-basis: auto"),
-      line: 1,
-      column: 23,
-      description: "flex-basis rules out height"
-    },
-    {
       code:
         "a { list-style-type: none; list-style-image: url('starsolid.gif'); }",
       message: messages.rejected("list-style-image", "list-style-type: none"),
