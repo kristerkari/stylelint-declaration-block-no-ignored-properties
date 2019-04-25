@@ -84,6 +84,66 @@ testRule(rule, {
       code: "a { display: table-cell; padding: 10px; }"
     },
     {
+      code: "a { display: table; margin: 10px; }"
+    },
+    {
+      code: "a { display: table; margin-top: 10px; }"
+    },
+    {
+      code: "a { display: table; margin-right: 10px; }"
+    },
+    {
+      code: "a { display: table; margin-bottom: 10px; }"
+    },
+    {
+      code: "a { display: table; margin-left: 10px; }"
+    },
+    {
+      code: "a { display: table-caption; margin: 10px; }"
+    },
+    {
+      code: "a { display: table-caption; margin-top: 10px; }"
+    },
+    {
+      code: "a { display: table-caption; margin-right: 10px; }"
+    },
+    {
+      code: "a { display: table-caption; margin-bottom: 10px; }"
+    },
+    {
+      code: "a { display: table-caption; margin-left: 10px; }"
+    },
+    {
+      code: "a { display: inline-table; margin: 10px; }"
+    },
+    {
+      code: "a { display: inline-table; margin-top: 10px; }"
+    },
+    {
+      code: "a { display: inline-table; margin-right: 10px; }"
+    },
+    {
+      code: "a { display: inline-table; margin-bottom: 10px; }"
+    },
+    {
+      code: "a { display: inline-table; margin-left: 10px; }"
+    },
+    {
+      code: "a { display: table-cell; padding: 10px; }"
+    },
+    {
+      code: "a { display: table-cell; padding-top: 10px; }"
+    },
+    {
+      code: "a { display: table-cell; padding-right: 10px; }"
+    },
+    {
+      code: "a { display: table-cell; padding-bottom: 10px; }"
+    },
+    {
+      code: "a { display: table-cell; padding-left: 10px; }"
+    },
+    {
       code: "a { display: table-cell; vertical-align: baseline; }"
     },
     {
@@ -385,48 +445,6 @@ testRule(rule, {
       description: "float: right rules out baseline"
     },
     {
-      code: "a { display: table-cell; margin: 10px; }",
-      message: messages.rejected("margin", "display: table-cell"),
-      line: 1,
-      column: 26,
-      description: "display: table-* rules out margin"
-    },
-    {
-      code: "a { display: table-cell; margin-top: 10px; }",
-      message: messages.rejected("margin-top", "display: table-cell"),
-      line: 1,
-      column: 26,
-      description: "display: table-* rules out margin"
-    },
-    {
-      code: "a { display: table-cell; margin-right: 10px; }",
-      message: messages.rejected("margin-right", "display: table-cell"),
-      line: 1,
-      column: 26,
-      description: "display: table-* rules out margin"
-    },
-    {
-      code: "a { display: table-cell; margin-bottom: 10px; }",
-      message: messages.rejected("margin-bottom", "display: table-cell"),
-      line: 1,
-      column: 26,
-      description: "display: table-* rules out margin"
-    },
-    {
-      code: "a { display: table-cell; margin-left: 10px; }",
-      message: messages.rejected("margin-left", "display: table-cell"),
-      line: 1,
-      column: 26,
-      description: "display: table-* rules out margin"
-    },
-    {
-      code: "a { display: table-row; margin: 10px; }",
-      message: messages.rejected("margin", "display: table-row"),
-      line: 1,
-      column: 25,
-      description: "display: table-* rules out margin"
-    },
-    {
       code: "a { display: table-row; width: 10px; }",
       message: messages.rejected("width", "display: table-row"),
       line: 1,
@@ -539,6 +557,13 @@ testRule(rule, {
       description: "position: static rules out top, right, bottom, and left"
     },
     {
+      code: "a { position: static; z-index: 1; }",
+      message: messages.rejected("z-index", "position: static"),
+      line: 1,
+      column: 23,
+      description: "position: static rules out z-index"
+    },
+    {
       code: "a { position: absolute; float: left; }",
       message: messages.rejected("float", "position: absolute"),
       line: 1,
@@ -565,6 +590,149 @@ testRule(rule, {
       line: 1,
       column: 22,
       description: "position: absolute rules out float"
+    },
+    {
+      code: "a { flex-basis: 3px; width: 100px; }",
+      message: messages.rejected("width", "flex-basis: 3px"),
+      line: 1,
+      column: 22,
+      description: "flex-basis rules out width"
+    },
+    {
+      code: "a { flex-basis: auto; width: 100px; }",
+      message: messages.rejected("width", "flex-basis: auto"),
+      line: 1,
+      column: 23,
+      description: "flex-basis rules out width"
+    },
+    {
+      code: "a { flex-basis: 3px; height: 100px; }",
+      message: messages.rejected("height", "flex-basis: 3px"),
+      line: 1,
+      column: 22,
+      description: "flex-basis rules out height"
+    },
+    {
+      code: "a { flex-basis: auto; height: 100px; }",
+      message: messages.rejected("height", "flex-basis: auto"),
+      line: 1,
+      column: 23,
+      description: "flex-basis rules out height"
+    },
+    {
+      code:
+        "a { list-style-type: none; list-style-image: url('starsolid.gif'); }",
+      message: messages.rejected("list-style-image", "list-style-type: none"),
+      line: 1,
+      column: 28,
+      description: "list-style-type: none rules out list-style-image"
+    },
+    {
+      code: "a { overflow: visible; resize: both; }",
+      message: messages.rejected("resize", "overflow: visible"),
+      line: 1,
+      column: 24,
+      description: "overflow: visible rules out resize"
     }
   ]
+});
+
+// table-* rules out margin
+const tableTypesForIgnoredMargin =
+  "row|row-group|column|column-group|header-group|footer-group|cell";
+
+tableTypesForIgnoredMargin.split("|").forEach(type => {
+  const column = 22 + type.length;
+  testRule(rule, {
+    ruleName,
+    config: [true],
+
+    reject: [
+      {
+        code: `a { display: table-${type}; margin: 10px; }`,
+        message: messages.rejected("margin", `display: table-${type}`),
+        line: 1,
+        column,
+        description: `display: table-${type} rules out margin`
+      },
+      {
+        code: `a { display: table-${type}; margin-top: 10px; }`,
+        message: messages.rejected("margin-top", `display: table-${type}`),
+        line: 1,
+        column,
+        description: `display: table-${type} rules out margin-top`
+      },
+      {
+        code: `a { display: table-${type}; margin-right: 10px; }`,
+        message: messages.rejected("margin-right", `display: table-${type}`),
+        line: 1,
+        column,
+        description: `display: table-${type} rules out margin-right`
+      },
+      {
+        code: `a { display: table-${type}; margin-bottom: 10px; }`,
+        message: messages.rejected("margin-bottom", `display: table-${type}`),
+        line: 1,
+        column,
+        description: `display: table-${type} rules out margin-bottom`
+      },
+      {
+        code: `a { display: table-${type}; margin-left: 10px; }`,
+        message: messages.rejected("margin-left", `display: table-${type}`),
+        line: 1,
+        column,
+        description: `display: table-${type} rules out margin-left`
+      }
+    ]
+  });
+});
+
+// table-* rules out padding
+const tableTypesForIgnoredPadding =
+  "row|row-group|column|column-group|header-group|footer-group";
+
+tableTypesForIgnoredPadding.split("|").forEach(type => {
+  const column = 22 + type.length;
+  testRule(rule, {
+    ruleName,
+    config: [true],
+
+    reject: [
+      {
+        code: `a { display: table-${type}; padding: 10px; }`,
+        message: messages.rejected("padding", `display: table-${type}`),
+        line: 1,
+        column,
+        description: `display: table-${type} rules out padding`
+      },
+      {
+        code: `a { display: table-${type}; padding-top: 10px; }`,
+        message: messages.rejected("padding-top", `display: table-${type}`),
+        line: 1,
+        column,
+        description: `display: table-${type} rules out padding-top`
+      },
+      {
+        code: `a { display: table-${type}; padding-right: 10px; }`,
+        message: messages.rejected("padding-right", `display: table-${type}`),
+        line: 1,
+        column,
+        description: `display: table-${type} rules out padding-right`
+      },
+      {
+        code: `a { display: table-${type}; padding-bottom: 10px; }`,
+        message: messages.rejected("padding-bottom", `display: table-${type}`),
+        line: 1,
+        column,
+        description: `display: table-${type} rules out padding-bottom`
+      },
+      {
+        code: `a { display: table-${type}; padding-left: 10px; }`,
+        message: messages.rejected("padding-left", `display: table-${type}`),
+        line: 1,
+        column,
+        description: `display: table-${type} rules out padding-left`
+      }
+    ]
+  });
 });

@@ -52,7 +52,8 @@ const ignored = [
   },
   {
     property: "display",
-    value: "/^table-.*$/",
+    value:
+      "/^table-(row|row-group|column|column-group|header-group|footer-group|cell)$/",
     ignoredProperties: [
       "margin",
       "margin-top",
@@ -64,17 +65,29 @@ const ignored = [
   {
     property: "display",
     value:
-      "/^table-(row|row-group|column|column-group|header-group|footer-group|caption).*$/",
+      "/^table-(row|row-group|column|column-group|header-group|footer-group)$/",
+    ignoredProperties: [
+      "padding",
+      "padding-top",
+      "padding-right",
+      "padding-bottom",
+      "padding-left"
+    ]
+  },
+  {
+    property: "display",
+    value:
+      "/^table-(row|row-group|column|column-group|header-group|footer-group|caption)$/",
     ignoredProperties: ["vertical-align"]
   },
   {
     property: "display",
-    value: "/^table-(row|row-group).*$/",
+    value: "/^table-(row|row-group)$/",
     ignoredProperties: ["width", "min-width", "max-width"]
   },
   {
     property: "display",
-    value: "/^table-(column|column-group).*$/",
+    value: "/^table-(column|column-group)$/",
     ignoredProperties: ["height", "min-height", "max-height"]
   },
   {
@@ -90,7 +103,7 @@ const ignored = [
   {
     property: "position",
     value: "static",
-    ignoredProperties: ["top", "right", "bottom", "left"]
+    ignoredProperties: ["top", "right", "bottom", "left", "z-index"]
   },
   {
     property: "position",
@@ -101,6 +114,21 @@ const ignored = [
     property: "position",
     value: "fixed",
     ignoredProperties: ["float", "clear", "vertical-align"]
+  },
+  {
+    property: "flex-basis",
+    value: "/^.*$/",
+    ignoredProperties: ["width", "height"]
+  },
+  {
+    property: "list-style-type",
+    value: "none",
+    ignoredProperties: ["list-style-image"]
+  },
+  {
+    property: "overflow",
+    value: "visible",
+    ignoredProperties: ["resize"]
   }
 ];
 
