@@ -116,11 +116,6 @@ const ignored = [
     ignoredProperties: ["float", "clear", "vertical-align"]
   },
   {
-    property: "flex-basis",
-    value: "/^.*$/",
-    ignoredProperties: ["width", "height"]
-  },
-  {
     property: "list-style-type",
     value: "none",
     ignoredProperties: ["list-style-image"]
@@ -131,6 +126,14 @@ const ignored = [
     ignoredProperties: ["resize"]
   }
 ];
+
+function isFlexDirectionRow(node) {
+  return node.prop === "flex-direction" && node.value === "row";
+}
+
+function isFlexDirectionColumn(node) {
+  return node.prop === "flex-direction" && node.value === "column";
+}
 
 const rule = actual => {
   return (root, result) => {
@@ -151,6 +154,31 @@ const rule = actual => {
         const value = decl.value;
         const unprefixedProp = postcss.vendor.unprefixed(prop);
         const unprefixedValue = postcss.vendor.unprefixed(value);
+        const isFlexBasis =
+          unprefixedProp.toLowerCase() === "flex-basis" &&
+          unprefixedValue.toLocaleLowerCase() !== "auto";
+
+        if (isFlexBasis) {
+          const { nodes } = decl.parent;
+          const flexDirections = nodes.filter(
+            node => isFlexDirectionRow(node) || isFlexDirectionColumn(node)
+          );
+          if (flexDirections.length === 1) {
+            const ignoredProp = isFlexDirectionRow(flexDirections[0])
+              ? "width"
+              : "height";
+            const node = nodes.filter(node => node.prop === ignoredProp);
+            if (node.length === 1) {
+              report({
+                message: messages.rejected(node[0].prop, decl.toString()),
+                node: node[0],
+                result,
+                ruleName
+              });
+              return;
+            }
+          }
+        }
 
         ignored.forEach(ignore => {
           const matchProperty = matchesStringOrRegExp(

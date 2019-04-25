@@ -197,6 +197,30 @@ testRule(rule, {
     {
       code:
         ".a { display: inline; width: 100px; display: inline-block; } .b { display: inline; width: 100px; display: inline-block; }"
+    },
+    {
+      code: "a { flex-basis: auto; width: 100px; }",
+      description: "flex-basis: auto does not rule out width"
+    },
+    {
+      code: "a { flex-basis: auto; flex-direction: row; width: 100px; }",
+      description: "flex-basis: auto does not rule out width"
+    },
+    {
+      code: "a { flex-basis: 3px; width: 100px; }",
+      description: "flex-basis without flex-direction does not rule out width"
+    },
+    {
+      code: "a { flex-basis: auto; height: 100px; }",
+      description: "flex-basis: auto does not rule out height"
+    },
+    {
+      code: "a { flex-basis: auto; flex-direction: column; height: 100px; }",
+      description: "flex-basis: auto does not rule out height"
+    },
+    {
+      code: "a { flex-basis: 3px; height: 100px; }",
+      description: "flex-basis without flex-direction does not rule out height"
     }
   ],
 
@@ -592,32 +616,18 @@ testRule(rule, {
       description: "position: absolute rules out float"
     },
     {
-      code: "a { flex-basis: 3px; width: 100px; }",
+      code: "a { flex-basis: 3px; flex-direction: row; width: 100px; }",
       message: messages.rejected("width", "flex-basis: 3px"),
       line: 1,
-      column: 22,
-      description: "flex-basis rules out width"
+      column: 43,
+      description: "flex-basis + flex-direction: row rules out width"
     },
     {
-      code: "a { flex-basis: auto; width: 100px; }",
-      message: messages.rejected("width", "flex-basis: auto"),
-      line: 1,
-      column: 23,
-      description: "flex-basis rules out width"
-    },
-    {
-      code: "a { flex-basis: 3px; height: 100px; }",
+      code: "a { flex-basis: 3px; flex-direction: column; height: 100px; }",
       message: messages.rejected("height", "flex-basis: 3px"),
       line: 1,
-      column: 22,
-      description: "flex-basis rules out height"
-    },
-    {
-      code: "a { flex-basis: auto; height: 100px; }",
-      message: messages.rejected("height", "flex-basis: auto"),
-      line: 1,
-      column: 23,
-      description: "flex-basis rules out height"
+      column: 46,
+      description: "flex-basis + flex-direction: column rules out height"
     },
     {
       code:
