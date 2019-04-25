@@ -1,3 +1,7 @@
+## v2.1.0
+
+- Added: more ignored properties based on the list from https://github.com/captainbrosset/useless-css-properties and the documentation for those properties on the Mozilla Developer Network website.
+
 ## v2.0.0
 
 - Added: support for stylelint version 10.
