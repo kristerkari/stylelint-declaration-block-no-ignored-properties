@@ -111,15 +111,15 @@ a { float: left; vertical-align: baseline; }
 The following patterns are *not* considered violations:
 
 ```css
-a { display: inline: margin-left: 10px; }
+a { display: inline; margin-left: 10px; }
 ```
 
 ```css
-a { display: inline: margin-right: 10px; }
+a { display: inline; margin-right: 10px; }
 ```
 
 ```css
-a { display: inline: padding: 10px; }
+a { display: inline; padding: 10px; }
 ```
 
 ```css
