@@ -10,17 +10,17 @@
     "url": "https://github.com/kristerkari/stylelint-declaration-block-no-ignored-properties/issues"
   },
   "dependencies": {
-    "postcss": "^7.0.17"
+    "postcss": "^7.0.27"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.2",
-    "eslint": "^6.0.1",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
     "eslint-plugin-sort-requires": "^2.1.0",
-    "jest-cli": "^24.8.0",
-    "lint-staged": "^9.1.0",
-    "lodash": "^4.17.11",
+    "jest-cli": "^24.9.0",
+    "lint-staged": "^9.5.0",
+    "lodash": "^4.17.15",
     "npmpub": "^4.1.0",
-    "prettier": "^1.18.2",
+    "prettier": "^1.19.1",
     "stylelint": "^11.1.1"
   },
   "peerDependencies": {
