@@ -138,13 +138,13 @@ const rule = actual => {
     root.walkRules(rule => {
       const uniqueDecls = {};
       rule.walkDecls(decl => {
-        uniqueDecls[decl.prop] = decl;
+        uniqueDecls[`${decl.prop}_${decl.parent.selector}`] = decl;
       });
 
       function check(prop, index) {
         const decl = uniqueDecls[prop];
         const value = decl.value;
-        const unprefixedProp = postcss.vendor.unprefixed(prop);
+        const unprefixedProp = postcss.vendor.unprefixed(prop.split('_')[0]);
         const unprefixedValue = postcss.vendor.unprefixed(value);
 
         ignored.forEach(ignore => {
