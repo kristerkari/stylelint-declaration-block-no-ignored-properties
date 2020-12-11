@@ -138,14 +138,13 @@ const rule = actual => {
     root.walkRules(rule => {
       const uniqueDecls = {};
       rule.walkDecls(decl => {
-        const { selector, indexes } = decl.parent;
-        uniqueDecls[`${decl.prop}_${selector}${JSON.stringify(indexes)}`] = decl;
+        uniqueDecls[`${decl.prop}_${JSON.stringify(decl.source.start)}`] = decl;
       });
 
       function check(prop, index) {
         const decl = uniqueDecls[prop];
         const value = decl.value;
-        const unprefixedProp = postcss.vendor.unprefixed(prop.split('_')[0]);
+        const unprefixedProp = postcss.vendor.unprefixed(prop.split("_")[0]);
         const unprefixedValue = postcss.vendor.unprefixed(value);
 
         ignored.forEach(ignore => {
