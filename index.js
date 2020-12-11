@@ -138,7 +138,8 @@ const rule = actual => {
     root.walkRules(rule => {
       const uniqueDecls = {};
       rule.walkDecls(decl => {
-        uniqueDecls[`${decl.prop}_${decl.parent.selector}`] = decl;
+        const { selector, indexes } = decl.parent;
+        uniqueDecls[`${decl.prop}_${selector}${JSON.stringify(indexes)}`] = decl;
       });
 
       function check(prop, index) {
