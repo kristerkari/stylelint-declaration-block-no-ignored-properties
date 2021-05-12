@@ -10,7 +10,7 @@
     "url": "https://github.com/kristerkari/stylelint-declaration-block-no-ignored-properties/issues"
   },
   "dependencies": {
-    "postcss": "^7.0.27"
+    "postcss": "^8.2.10"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
