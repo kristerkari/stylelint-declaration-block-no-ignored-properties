@@ -1,6 +1,6 @@
 const matchesStringOrRegExp = require("./utils/matchesStringOrRegExp");
-const postcss = require("postcss");
 const stylelint = require("stylelint");
+const vendorPrefixes = require("./utils/vendorPrefixes");
 const report = stylelint.utils.report;
 const ruleMessages = stylelint.utils.ruleMessages;
 const validateOptions = stylelint.utils.validateOptions;
@@ -144,8 +144,8 @@ const rule = actual => {
       function check(prop, index) {
         const decl = uniqueDecls[prop];
         const value = decl.value;
-        const unprefixedProp = postcss.vendor.unprefixed(prop);
-        const unprefixedValue = postcss.vendor.unprefixed(value);
+        const unprefixedProp = vendorPrefixes.unprefixed(prop);
+        const unprefixedValue = vendorPrefixes.unprefixed(value);
 
         ignored.forEach(ignore => {
           const matchProperty = matchesStringOrRegExp(
