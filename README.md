@@ -1,11 +1,8 @@
 # stylelint-declaration-block-no-ignored-properties
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/kristerkari/stylelint-declaration-block-no-ignored-properties.svg)](https://greenkeeper.io/)
-
 [![NPM version](https://img.shields.io/npm/v/stylelint-declaration-block-no-ignored-properties.svg)](https://www.npmjs.com/package/stylelint-declaration-block-no-ignored-properties)
-[![Build Status](https://travis-ci.org/kristerkari/stylelint-declaration-block-no-ignored-properties.svg?branch=master)](https://travis-ci.org/kristerkari/stylelint-declaration-block-no-ignored-properties)
-[![Build status](https://ci.appveyor.com/api/projects/status/yajvta1q8v2jimjp/branch/master?svg=true)](https://ci.appveyor.com/project/kristerkari/stylelint-declaration-block-no-ignored-properties/branch/master)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
+[![Build Status](https://github.com/kristerkari/stylelint-declaration-block-no-ignored-properties/workflows/Tests/badge.svg)](https://github.com/kristerkari/stylelint-declaration-block-no-ignored-properties/actions?workflow=Tests)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
 [![Downloads per month](https://img.shields.io/npm/dm/stylelint-declaration-block-no-ignored-properties.svg)](http://npmcharts.com/compare/stylelint-declaration-block-no-ignored-properties)
 
 Original rule: [stylelint/declaration-block-no-ignored-properties](https://github.com/stylelint/stylelint/tree/7.13.0/lib/rules/declaration-block-no-ignored-properties).
