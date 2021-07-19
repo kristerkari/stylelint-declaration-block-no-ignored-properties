@@ -1,3 +1,7 @@
+## v2.4.0
+
+- Removed: PostCSS dependency.
+
 ## v2.3.0
 
 - Added: support for stylelint version 13.
