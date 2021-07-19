@@ -8,7 +8,7 @@ const validateOptions = stylelint.utils.validateOptions;
 const ruleName = "plugin/declaration-block-no-ignored-properties";
 
 const messages = ruleMessages(ruleName, {
-  rejected: (ignore, cause) => `Unexpected "${ignore}" with "${cause}"`
+  rejected: (ignore, cause) => `Unexpected "${ignore}" with "${cause}"`,
 });
 
 const ignored = [
@@ -27,28 +27,28 @@ const ignored = [
       "margin-bottom",
       "overflow",
       "overflow-x",
-      "overflow-y"
-    ]
+      "overflow-y",
+    ],
   },
   {
     property: "display",
     value: "list-item",
-    ignoredProperties: ["vertical-align"]
+    ignoredProperties: ["vertical-align"],
   },
   {
     property: "display",
     value: "block",
-    ignoredProperties: ["vertical-align"]
+    ignoredProperties: ["vertical-align"],
   },
   {
     property: "display",
     value: "flex",
-    ignoredProperties: ["vertical-align"]
+    ignoredProperties: ["vertical-align"],
   },
   {
     property: "display",
     value: "table",
-    ignoredProperties: ["vertical-align"]
+    ignoredProperties: ["vertical-align"],
   },
   {
     property: "display",
@@ -59,8 +59,8 @@ const ignored = [
       "margin-top",
       "margin-right",
       "margin-bottom",
-      "margin-left"
-    ]
+      "margin-left",
+    ],
   },
   {
     property: "display",
@@ -71,63 +71,63 @@ const ignored = [
       "padding-top",
       "padding-right",
       "padding-bottom",
-      "padding-left"
-    ]
+      "padding-left",
+    ],
   },
   {
     property: "display",
     value:
       "/^table-(row|row-group|column|column-group|header-group|footer-group|caption)$/",
-    ignoredProperties: ["vertical-align"]
+    ignoredProperties: ["vertical-align"],
   },
   {
     property: "display",
     value: "/^table-(row|row-group)$/",
-    ignoredProperties: ["width", "min-width", "max-width"]
+    ignoredProperties: ["width", "min-width", "max-width"],
   },
   {
     property: "display",
     value: "/^table-(column|column-group)$/",
-    ignoredProperties: ["height", "min-height", "max-height"]
+    ignoredProperties: ["height", "min-height", "max-height"],
   },
   {
     property: "float",
     value: "left",
-    ignoredProperties: ["vertical-align"]
+    ignoredProperties: ["vertical-align"],
   },
   {
     property: "float",
     value: "right",
-    ignoredProperties: ["vertical-align"]
+    ignoredProperties: ["vertical-align"],
   },
   {
     property: "position",
     value: "static",
-    ignoredProperties: ["top", "right", "bottom", "left", "z-index"]
+    ignoredProperties: ["top", "right", "bottom", "left", "z-index"],
   },
   {
     property: "position",
     value: "absolute",
-    ignoredProperties: ["float", "clear", "vertical-align"]
+    ignoredProperties: ["float", "clear", "vertical-align"],
   },
   {
     property: "position",
     value: "fixed",
-    ignoredProperties: ["float", "clear", "vertical-align"]
+    ignoredProperties: ["float", "clear", "vertical-align"],
   },
   {
     property: "list-style-type",
     value: "none",
-    ignoredProperties: ["list-style-image"]
+    ignoredProperties: ["list-style-image"],
   },
   {
     property: "overflow",
     value: "visible",
-    ignoredProperties: ["resize"]
-  }
+    ignoredProperties: ["resize"],
+  },
 ];
 
-const rule = actual => {
+const rule = (actual) => {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual });
 
@@ -135,9 +135,9 @@ const rule = actual => {
       return;
     }
 
-    root.walkRules(rule => {
+    root.walkRules((rule) => {
       const uniqueDecls = {};
-      rule.walkDecls(decl => {
+      rule.walkDecls((decl) => {
         uniqueDecls[decl.prop] = decl;
       });
 
@@ -147,7 +147,7 @@ const rule = actual => {
         const unprefixedProp = postcss.vendor.unprefixed(prop);
         const unprefixedValue = postcss.vendor.unprefixed(value);
 
-        ignored.forEach(ignore => {
+        ignored.forEach((ignore) => {
           const matchProperty = matchesStringOrRegExp(
             unprefixedProp.toLowerCase(),
             ignore.property
@@ -176,7 +176,7 @@ const rule = actual => {
               message: messages.rejected(node.prop, decl.toString()),
               node,
               result,
-              ruleName
+              ruleName,
             });
           });
         });
