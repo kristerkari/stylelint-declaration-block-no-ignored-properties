@@ -8,29 +8,29 @@ global.testRule = (rule, schema) => {
         return {
           message: () =>
             'Expected "reject" test case to have a "message" property',
-          pass: false
+          pass: false,
         };
       }
 
       return {
-        pass: true
+        pass: true,
       };
-    }
+    },
   });
 
   describe(schema.ruleName, () => {
     const stylelintConfig = {
       plugins: ["./index"],
       rules: {
-        [schema.ruleName]: schema.config
-      }
+        [schema.ruleName]: schema.config,
+      },
     };
 
     const passingTestCases = schema.accept || [];
 
     if (passingTestCases && passingTestCases.length) {
       describe("accept", () => {
-        passingTestCases.forEach(testCase => {
+        passingTestCases.forEach((testCase) => {
           const spec = testCase.only ? it.only : it;
           describe(JSON.stringify(schema.config), () => {
             describe(JSON.stringify(testCase.code), () => {
@@ -38,9 +38,9 @@ global.testRule = (rule, schema) => {
                 const options = {
                   code: testCase.code,
                   config: stylelintConfig,
-                  syntax: schema.syntax
+                  syntax: schema.syntax,
                 };
-                return stylelint.lint(options).then(output => {
+                return stylelint.lint(options).then((output) => {
                   expect(output.results[0].warnings).toEqual([]);
                   expect(output.results[0].parseErrors).toEqual([]);
                   if (!schema.fix) return;
@@ -48,7 +48,7 @@ global.testRule = (rule, schema) => {
                   // Check the fix
                   return stylelint
                     .lint(Object.assign({ fix: true }, options))
-                    .then(output => {
+                    .then((output) => {
                       const fixedCode = getOutputCss(output);
                       expect(fixedCode).toBe(testCase.code);
                     });
@@ -62,7 +62,7 @@ global.testRule = (rule, schema) => {
 
     if (schema.reject && schema.reject.length) {
       describe("reject", () => {
-        schema.reject.forEach(testCase => {
+        schema.reject.forEach((testCase) => {
           const spec = testCase.only ? it.only : it;
           describe(JSON.stringify(schema.config), () => {
             describe(JSON.stringify(testCase.code), () => {
@@ -70,9 +70,9 @@ global.testRule = (rule, schema) => {
                 const options = {
                   code: testCase.code,
                   config: stylelintConfig,
-                  syntax: schema.syntax
+                  syntax: schema.syntax,
                 };
-                return stylelint.lint(options).then(output => {
+                return stylelint.lint(options).then((output) => {
                   const warning = output.results[0].warnings[0];
 
                   expect(output.results[0].parseErrors).toEqual([]);
@@ -99,7 +99,7 @@ global.testRule = (rule, schema) => {
                   // Check the fix
                   return stylelint
                     .lint(Object.assign({ fix: true }, options))
-                    .then(output => {
+                    .then((output) => {
                       const fixedCode = getOutputCss(output);
                       expect(fixedCode).toBe(testCase.fixed);
                       expect(fixedCode).not.toBe(testCase.code);
