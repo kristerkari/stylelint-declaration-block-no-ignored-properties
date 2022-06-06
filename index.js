@@ -113,7 +113,14 @@ const ignored = [
   {
     property: "display",
     value: "/^table-(column|column-group)$/",
-    ignoredProperties: ["height", "min-height", "max-height"],
+    ignoredProperties: [
+      "height",
+      "min-height",
+      "max-height",
+      "block-size",
+      "min-block-size",
+      "max-block-size",
+    ],
   },
   {
     property: "float",
