@@ -70,6 +70,10 @@ const ignored = [
       "margin-right",
       "margin-bottom",
       "margin-left",
+      "margin-block-start",
+      "margin-inline-end",
+      "margin-block-end",
+      "margin-inline-start",
     ],
   },
   {
