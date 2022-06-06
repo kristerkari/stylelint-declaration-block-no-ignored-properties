@@ -135,7 +135,17 @@ const ignored = [
   {
     property: "position",
     value: "static",
-    ignoredProperties: ["top", "right", "bottom", "left", "z-index"],
+    ignoredProperties: [
+      "top",
+      "right",
+      "bottom",
+      "left",
+      "z-index",
+      "inset-block-start",
+      "inset-inline-end",
+      "inset-block-end",
+      "inset-inline-start",
+    ],
   },
   {
     property: "position",
