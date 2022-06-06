@@ -101,7 +101,14 @@ const ignored = [
   {
     property: "display",
     value: "/^table-(row|row-group)$/",
-    ignoredProperties: ["width", "min-width", "max-width"],
+    ignoredProperties: [
+      "width",
+      "min-width",
+      "max-width",
+      "inline-size",
+      "min-inline-size",
+      "max-inline-size",
+    ],
   },
   {
     property: "display",
