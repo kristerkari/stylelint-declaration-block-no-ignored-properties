@@ -86,6 +86,10 @@ const ignored = [
       "padding-right",
       "padding-bottom",
       "padding-left",
+      "padding-block-start",
+      "padding-inline-end",
+      "padding-block-end",
+      "padding-inline-start",
     ],
   },
   {
