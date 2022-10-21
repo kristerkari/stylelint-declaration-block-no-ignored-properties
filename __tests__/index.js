@@ -322,70 +322,70 @@ testRule(rule, {
       description: "display: inline rules out overflow-x",
     },
     {
-      code: "a { dislay: inline; inline-size: 100px; }",
+      code: "a { display: inline; inline-size: 100px; }",
       message: messages.rejected("inline-size", "display: inline"),
       line: 1,
       column: 22,
       description: "display: inline rules out inline-size",
     },
     {
-      code: "a { dislay: inline; min-inline-size: 100px; }",
+      code: "a { display: inline; min-inline-size: 100px; }",
       message: messages.rejected("min-inline-size", "display: inline"),
       line: 1,
       column: 22,
       description: "display: inline rules out min-inline-size",
     },
     {
-      code: "a { dislay: inline; max-inline-size: 100px; }",
+      code: "a { display: inline; max-inline-size: 100px; }",
       message: messages.rejected("max-inline-size", "display: inline"),
       line: 1,
       column: 22,
       description: "display: inline rules out max-inline-size",
     },
     {
-      code: "a { dislay: inline; block-size: 100px; }",
+      code: "a { display: inline; block-size: 100px; }",
       message: messages.rejected("block-size", "display: inline"),
       line: 1,
       column: 22,
       description: "display: inline rules out block-size",
     },
     {
-      code: "a { dislay: inline; min-block-size: 100px; }",
+      code: "a { display: inline; min-block-size: 100px; }",
       message: messages.rejected("min-block-size", "display: inline"),
       line: 1,
       column: 22,
       description: "display: inline rules out min-block-size",
     },
     {
-      code: "a { dislay: inline; max-block-size: 100px; }",
+      code: "a { display: inline; max-block-size: 100px; }",
       message: messages.rejected("max-block-size", "display: inline"),
       line: 1,
       column: 22,
       description: "display: inline rules out max-block-size",
     },
     {
-      code: "a { dislay: inline; margin-block-start: 100px; }",
+      code: "a { display: inline; margin-block-start: 100px; }",
       message: messages.rejected("margin-block-start", "display: inline"),
       line: 1,
       column: 22,
       description: "display: inline rules out margin-block-start",
     },
     {
-      code: "a { dislay: inline; margin-block-end: 100px; }",
+      code: "a { display: inline; margin-block-end: 100px; }",
       message: messages.rejected("margin-block-end", "display: inline"),
       line: 1,
       column: 22,
       description: "display: inline rules out margin-block-end",
     },
     {
-      code: "a { dislay: inline; overflow-block: 100px; }",
+      code: "a { display: inline; overflow-block: 100px; }",
       message: messages.rejected("overflow-block", "display: inline"),
       line: 1,
       column: 22,
       description: "display: inline rules out overflow-block",
     },
     {
-      code: "a { dislay: inline; overflow-inline: 100px; }",
+      code: "a { display: inline; overflow-inline: 100px; }",
       message: messages.rejected("overflow-inline", "display: inline"),
       line: 1,
       column: 22,
@@ -487,10 +487,7 @@ testRule(rule, {
     },
     {
       code: "a { display: table-column-group; block-size: 10px; }",
-      message: messages.rejected(
-        "block-size",
-        "display: table-column-group"
-      ),
+      message: messages.rejected("block-size", "display: table-column-group"),
       line: 1,
       column: 34,
       description: "display: table-column-group rules out block-size",
@@ -845,28 +842,40 @@ tableTypesForIgnoredMargin.split("|").forEach((type) => {
       },
       {
         code: `a { display: table-${type}; margin-block-start: 10px; }`,
-        message: messages.rejected("margin-block-start", `display: table-${type}`),
+        message: messages.rejected(
+          "margin-block-start",
+          `display: table-${type}`
+        ),
         line: 1,
         column,
         description: `display: table-${type} rules out margin-block-start`,
       },
       {
         code: `a { display: table-${type}; margin-inline-end: 10px; }`,
-        message: messages.rejected("margin-inline-end", `display: table-${type}`),
+        message: messages.rejected(
+          "margin-inline-end",
+          `display: table-${type}`
+        ),
         line: 1,
         column,
         description: `display: table-${type} rules out margin-inline-end`,
       },
       {
         code: `a { display: table-${type}; margin-block-end: 10px; }`,
-        message: messages.rejected("margin-block-end", `display: table-${type}`),
+        message: messages.rejected(
+          "margin-block-end",
+          `display: table-${type}`
+        ),
         line: 1,
         column,
         description: `display: table-${type} rules out margin-block-end`,
       },
       {
         code: `a { display: table-${type}; margin-inline-start: 10px; }`,
-        message: messages.rejected("margin-inline-start", `display: table-${type}`),
+        message: messages.rejected(
+          "margin-inline-start",
+          `display: table-${type}`
+        ),
         line: 1,
         column,
         description: `display: table-${type} rules out margin-inline-start`,
@@ -923,28 +932,40 @@ tableTypesForIgnoredPadding.split("|").forEach((type) => {
       },
       {
         code: `a { display: table-${type}; padding-block-start: 10px; }`,
-        message: messages.rejected("padding-block-start", `display: table-${type}`),
+        message: messages.rejected(
+          "padding-block-start",
+          `display: table-${type}`
+        ),
         line: 1,
         column,
         description: `display: table-${type} rules out padding-block-start`,
       },
       {
         code: `a { display: table-${type}; padding-inline-end: 10px; }`,
-        message: messages.rejected("padding-inline-end", `display: table-${type}`),
+        message: messages.rejected(
+          "padding-inline-end",
+          `display: table-${type}`
+        ),
         line: 1,
         column,
         description: `display: table-${type} rules out padding-inline-end`,
       },
       {
         code: `a { display: table-${type}; padding-block-end: 10px; }`,
-        message: messages.rejected("padding-block-end", `display: table-${type}`),
+        message: messages.rejected(
+          "padding-block-end",
+          `display: table-${type}`
+        ),
         line: 1,
         column,
         description: `display: table-${type} rules out padding-block-end`,
       },
       {
         code: `a { display: table-${type}; padding-inline-start: 10px; }`,
-        message: messages.rejected("padding-inline-start", `display: table-${type}`),
+        message: messages.rejected(
+          "padding-inline-start",
+          `display: table-${type}`
+        ),
         line: 1,
         column,
         description: `display: table-${type} rules out padding-inline-start`,
