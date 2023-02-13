@@ -1,3 +1,7 @@
+## v2.7.0
+
+- Added: support for stylelint version 15.
+
 ## v2.6.0
 
 - Added: support for CSS Logical Properties (https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties).
