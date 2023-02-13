@@ -1,7 +1,7 @@
 {
   "name": "stylelint-declaration-block-no-ignored-properties",
   "description": "Disallow property values that are ignored due to another property value in the same rule.",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "author": {
     "name": "Krister Kari",
     "url": "https://github.com/kristerkari/"
