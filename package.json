@@ -17,7 +17,7 @@
     "lint-staged": "^13.0.3",
     "lodash": "^4.17.21",
     "np": "^8.0.2",
-    "prettier": "^2.3.2",
+    "prettier": "^3.0.0",
     "stylelint": "^15.1.0"
   },
   "peerDependencies": {
