@@ -14,7 +14,7 @@
     "eslint": "^7.31.0",
     "eslint-plugin-sort-requires": "^2.1.0",
     "jest-cli": "^29.3.1",
-    "lint-staged": "^13.0.3",
+    "lint-staged": "^14.0.0",
     "lodash": "^4.17.21",
     "np": "^8.0.2",
     "prettier": "^3.0.0",
