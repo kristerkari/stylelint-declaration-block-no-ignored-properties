@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [14, 16]
+        node: [20]
         os: [ubuntu-latest, windows-latest]
 
     steps:
@@ -29,10 +29,5 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Run jest tests
-        run: npm run jest -- --runInBand
-        if: "!(startsWith(matrix.os, 'ubuntu') && matrix.node == 10)"
-
       - name: Run jest tests with coverage
         run: npm run jest -- --runInBand --coverage
-        if: startsWith(matrix.os, 'ubuntu') && matrix.node == 10
