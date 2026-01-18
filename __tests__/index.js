@@ -1,7 +1,4 @@
-const messages = require("..").messages;
-const ruleName = require("..").ruleName;
-
-const rule = require("..");
+import rule, {messages, ruleName} from "../index";
 
 testRule(rule, {
   ruleName,

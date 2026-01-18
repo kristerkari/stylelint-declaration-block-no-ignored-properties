@@ -3,7 +3,7 @@
  *
  * @namespace vendor
  */
-const vendor = {
+const vendorPrefixes = {
   /**
    * Returns the vendor prefix extracted from an input string.
    *
@@ -39,4 +39,4 @@ const vendor = {
   }
 };
 
-module.exports = vendor;
+export default vendorPrefixes;
