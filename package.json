@@ -110,6 +110,7 @@
       "git add"
     ]
   },
+  "type": "module",
   "main": "index.js",
   "repository": {
     "type": "git",
