@@ -1,4 +1,4 @@
-import rule, {messages, ruleName} from "../index";
+import rule, {messages, ruleName} from "../index.js";
 
 testRule(rule, {
   ruleName,
