@@ -112,6 +112,7 @@
   },
   "type": "module",
   "main": "index.js",
+  "exports": "./index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kristerkari/stylelint-declaration-block-no-ignored-properties.git"
