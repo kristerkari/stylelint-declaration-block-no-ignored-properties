@@ -19,7 +19,7 @@
     "lodash": "^4.17.21",
     "np": "^11.0.1",
     "prettier": "^3.0.0",
-    "stylelint": "^16.1.0"
+    "stylelint": "^17.0.0"
   },
   "peerDependencies": {
     "stylelint": ">=16.7.0 <17.0.0"
