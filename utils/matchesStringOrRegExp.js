@@ -8,7 +8,7 @@
  * Any strings starting and ending with `/` are interpreted
  * as regular expressions.
  */
-module.exports = function matchesStringOrRegExp(
+export default function matchesStringOrRegExp(
   input /*: string | Array<string>*/,
   comparison /*: string | Array<string>*/
 ) /*: false | { match: string, pattern: string}*/ {
@@ -24,7 +24,7 @@ module.exports = function matchesStringOrRegExp(
   }
 
   return false;
-};
+}
 
 function testAgainstStringOrArray(value, comparison) {
   if (!Array.isArray(comparison)) {

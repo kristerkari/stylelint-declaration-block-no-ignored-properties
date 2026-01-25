@@ -1,4 +1,4 @@
-const vendorPrefixes = require("../../utils/vendorPrefixes");
+import vendorPrefixes from "../../utils/vendorPrefixes.js";
 
 describe("utils/vendorPrefixes", () => {
   it("should return the vendor prefix when it is specified", () => {

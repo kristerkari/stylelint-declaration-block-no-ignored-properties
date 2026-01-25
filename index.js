@@ -1,13 +1,13 @@
-const matchesStringOrRegExp = require("./utils/matchesStringOrRegExp");
-const stylelint = require("stylelint");
-const vendorPrefixes = require("./utils/vendorPrefixes");
+import matchesStringOrRegExp from "./utils/matchesStringOrRegExp.js";
+import stylelint from "stylelint";
+import vendorPrefixes from "./utils/vendorPrefixes.js";
 const report = stylelint.utils.report;
 const ruleMessages = stylelint.utils.ruleMessages;
 const validateOptions = stylelint.utils.validateOptions;
 
-const ruleName = "plugin/declaration-block-no-ignored-properties";
+export const ruleName = "plugin/declaration-block-no-ignored-properties";
 
-const messages = ruleMessages(ruleName, {
+export const messages = ruleMessages(ruleName, {
   rejected: (ignore, cause) => `Unexpected "${ignore}" with "${cause}"`,
 });
 
@@ -229,6 +229,4 @@ const rule = (actual) => {
   };
 };
 
-module.exports = stylelint.createPlugin(ruleName, rule);
-module.exports.ruleName = ruleName;
-module.exports.messages = messages;
+export default stylelint.createPlugin(ruleName, rule);
