@@ -36,30 +36,6 @@
     "README.md"
   ],
   "homepage": "https://github.com/kristerkari/stylelint-declaration-block-no-ignored-properties#readme",
-  "jest": {
-    "clearMocks": true,
-    "collectCoverage": false,
-    "collectCoverageFrom": [
-      "index.js"
-    ],
-    "coverageDirectory": "./coverage/",
-    "coverageReporters": [
-      "lcov",
-      "text"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 75,
-        "functions": 75,
-        "lines": 75,
-        "statements": 75
-      }
-    },
-    "testEnvironment": "node",
-    "setupFiles": [
-      "./jest-setup.js"
-    ]
-  },
   "keywords": [
     "css",
     "less",
@@ -89,7 +65,7 @@
     "lint": "eslint .",
     "precommit": "lint-staged",
     "pretest": "npm run lint",
-    "prettify": "prettier --write '**/*.{js,json}'",
+    "prettify": "prettier --write '**/*.{cjs,js,json,mjs}'",
     "release": "npx np",
     "test": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --no-warnings\" jest --coverage"
   }
