@@ -8,16 +8,14 @@
  * Any strings starting and ending with `/` are interpreted
  * as regular expressions.
  */
-export default function matchesStringOrRegExp(
-  input /*: string | Array<string>*/,
-  comparison /*: string | Array<string>*/
-) /*: false | { match: string, pattern: string}*/ {
+export default function matchesStringOrRegExp(input, comparison) {
   if (!Array.isArray(input)) {
     return testAgainstStringOrArray(input, comparison);
   }
 
   for (const inputItem of input) {
     const testResult = testAgainstStringOrArray(inputItem, comparison);
+
     if (testResult) {
       return testResult;
     }
@@ -33,10 +31,12 @@ function testAgainstStringOrArray(value, comparison) {
 
   for (const comparisonItem of comparison) {
     const testResult = testAgainstString(value, comparisonItem);
+
     if (testResult) {
       return testResult;
     }
   }
+
   return false;
 }
 
@@ -57,6 +57,7 @@ function testAgainstString(value, comparison) {
     const valueMatches = hasCaseInsensitiveFlag
       ? new RegExp(comparison.slice(1, -2), "i").test(value)
       : new RegExp(comparison.slice(1, -1)).test(value);
+
     return valueMatches ? { match: value, pattern: comparison } : false;
   }
 

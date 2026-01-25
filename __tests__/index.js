@@ -1,6 +1,6 @@
-import rule, {messages, ruleName} from "../index.js";
+import { messages, ruleName } from "../index.js";
 
-testRule(rule, {
+testRule({
   ruleName,
   config: [true],
 
@@ -476,7 +476,7 @@ testRule(rule, {
       code: "a { display: table-column-group; vertical-align: baseline; }",
       message: messages.rejected(
         "vertical-align",
-        "display: table-column-group"
+        "display: table-column-group",
       ),
       line: 1,
       column: 34,
@@ -493,7 +493,7 @@ testRule(rule, {
       code: "a { display: table-column-group; min-block-size: 10px; }",
       message: messages.rejected(
         "min-block-size",
-        "display: table-column-group"
+        "display: table-column-group",
       ),
       line: 1,
       column: 34,
@@ -503,7 +503,7 @@ testRule(rule, {
       code: "a { display: table-column-group; max-block-size: 10px; }",
       message: messages.rejected(
         "max-block-size",
-        "display: table-column-group"
+        "display: table-column-group",
       ),
       line: 1,
       column: 34,
@@ -513,7 +513,7 @@ testRule(rule, {
       code: "a { display: table-header-group; vertical-align: baseline; }",
       message: messages.rejected(
         "vertical-align",
-        "display: table-header-group"
+        "display: table-header-group",
       ),
       line: 1,
       column: 34,
@@ -523,7 +523,7 @@ testRule(rule, {
       code: "a { display: table-footer-group; vertical-align: baseline; }",
       message: messages.rejected(
         "vertical-align",
-        "display: table-footer-group"
+        "display: table-footer-group",
       ),
       line: 1,
       column: 34,
@@ -797,7 +797,8 @@ const tableTypesForIgnoredMargin =
 
 tableTypesForIgnoredMargin.split("|").forEach((type) => {
   const column = 22 + type.length;
-  testRule(rule, {
+
+  testRule({
     ruleName,
     config: [true],
 
@@ -841,7 +842,7 @@ tableTypesForIgnoredMargin.split("|").forEach((type) => {
         code: `a { display: table-${type}; margin-block-start: 10px; }`,
         message: messages.rejected(
           "margin-block-start",
-          `display: table-${type}`
+          `display: table-${type}`,
         ),
         line: 1,
         column,
@@ -851,7 +852,7 @@ tableTypesForIgnoredMargin.split("|").forEach((type) => {
         code: `a { display: table-${type}; margin-inline-end: 10px; }`,
         message: messages.rejected(
           "margin-inline-end",
-          `display: table-${type}`
+          `display: table-${type}`,
         ),
         line: 1,
         column,
@@ -861,7 +862,7 @@ tableTypesForIgnoredMargin.split("|").forEach((type) => {
         code: `a { display: table-${type}; margin-block-end: 10px; }`,
         message: messages.rejected(
           "margin-block-end",
-          `display: table-${type}`
+          `display: table-${type}`,
         ),
         line: 1,
         column,
@@ -871,7 +872,7 @@ tableTypesForIgnoredMargin.split("|").forEach((type) => {
         code: `a { display: table-${type}; margin-inline-start: 10px; }`,
         message: messages.rejected(
           "margin-inline-start",
-          `display: table-${type}`
+          `display: table-${type}`,
         ),
         line: 1,
         column,
@@ -887,7 +888,8 @@ const tableTypesForIgnoredPadding =
 
 tableTypesForIgnoredPadding.split("|").forEach((type) => {
   const column = 22 + type.length;
-  testRule(rule, {
+
+  testRule({
     ruleName,
     config: [true],
 
@@ -931,7 +933,7 @@ tableTypesForIgnoredPadding.split("|").forEach((type) => {
         code: `a { display: table-${type}; padding-block-start: 10px; }`,
         message: messages.rejected(
           "padding-block-start",
-          `display: table-${type}`
+          `display: table-${type}`,
         ),
         line: 1,
         column,
@@ -941,7 +943,7 @@ tableTypesForIgnoredPadding.split("|").forEach((type) => {
         code: `a { display: table-${type}; padding-inline-end: 10px; }`,
         message: messages.rejected(
           "padding-inline-end",
-          `display: table-${type}`
+          `display: table-${type}`,
         ),
         line: 1,
         column,
@@ -951,7 +953,7 @@ tableTypesForIgnoredPadding.split("|").forEach((type) => {
         code: `a { display: table-${type}; padding-block-end: 10px; }`,
         message: messages.rejected(
           "padding-block-end",
-          `display: table-${type}`
+          `display: table-${type}`,
         ),
         line: 1,
         column,
@@ -961,7 +963,7 @@ tableTypesForIgnoredPadding.split("|").forEach((type) => {
         code: `a { display: table-${type}; padding-inline-start: 10px; }`,
         message: messages.rejected(
           "padding-inline-start",
-          `display: table-${type}`
+          `display: table-${type}`,
         ),
         line: 1,
         column,
