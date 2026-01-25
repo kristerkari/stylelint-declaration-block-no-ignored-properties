@@ -90,7 +90,7 @@
     "precommit": "lint-staged",
     "pretest": "npm run lint",
     "prettify": "prettier --write '**/*.{js,json}'",
-    "release": "np",
+    "release": "npx np",
     "test": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --no-warnings\" jest --coverage"
   }
 }
