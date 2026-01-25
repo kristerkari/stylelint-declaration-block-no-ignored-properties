@@ -50,11 +50,7 @@ const ignored = [
     value: "block",
     ignoredProperties: ["vertical-align"],
   },
-  {
-    property: "display",
-    value: "flex",
-    ignoredProperties: ["vertical-align"],
-  },
+  { property: "display", value: "flex", ignoredProperties: ["vertical-align"] },
   {
     property: "display",
     value: "table",
@@ -122,16 +118,8 @@ const ignored = [
       "max-block-size",
     ],
   },
-  {
-    property: "float",
-    value: "left",
-    ignoredProperties: ["vertical-align"],
-  },
-  {
-    property: "float",
-    value: "right",
-    ignoredProperties: ["vertical-align"],
-  },
+  { property: "float", value: "left", ignoredProperties: ["vertical-align"] },
+  { property: "float", value: "right", ignoredProperties: ["vertical-align"] },
   {
     property: "position",
     value: "static",
@@ -162,11 +150,7 @@ const ignored = [
     value: "none",
     ignoredProperties: ["list-style-image"],
   },
-  {
-    property: "overflow",
-    value: "visible",
-    ignoredProperties: ["resize"],
-  },
+  { property: "overflow", value: "visible", ignoredProperties: ["resize"] },
 ];
 
 const rule = (actual) => {
@@ -177,9 +161,10 @@ const rule = (actual) => {
       return;
     }
 
-    root.walkRules((rule) => {
+    root.walkRules((rule$) => {
       const uniqueDecls = {};
-      rule.walkDecls((decl) => {
+
+      rule$.walkDecls((decl) => {
         uniqueDecls[decl.prop] = decl;
       });
 
@@ -192,11 +177,11 @@ const rule = (actual) => {
         ignored.forEach((ignore) => {
           const matchProperty = matchesStringOrRegExp(
             unprefixedProp.toLowerCase(),
-            ignore.property
+            ignore.property,
           );
           const matchValue = matchesStringOrRegExp(
             unprefixedValue.toLowerCase(),
-            ignore.value
+            ignore.value,
           );
 
           if (!matchProperty || !matchValue) {

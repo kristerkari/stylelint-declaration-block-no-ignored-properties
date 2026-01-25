@@ -17,6 +17,7 @@ const vendorPrefixes = {
    */
   prefix(prop) {
     const match = prop.match(/^(-\w+-)/);
+
     if (match) {
       return match[0];
     }
@@ -36,7 +37,7 @@ const vendorPrefixes = {
    */
   unprefixed(prop) {
     return prop.replace(/^-\w+-/, "");
-  }
+  },
 };
 
 export default vendorPrefixes;
