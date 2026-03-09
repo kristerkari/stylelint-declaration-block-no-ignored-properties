@@ -10,7 +10,7 @@
     "url": "https://github.com/kristerkari/stylelint-declaration-block-no-ignored-properties/issues"
   },
   "devDependencies": {
-    "@eslint/js": "^9.0.0",
+    "@eslint/js": "^10.0.1",
     "cross-env": "^10.1.0",
     "eslint": "^9.0.0",
     "eslint-config-stylelint": "^26.1.0",
