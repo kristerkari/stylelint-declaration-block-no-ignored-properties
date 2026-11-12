@@ -1,3 +1,7 @@
+## v3.1.0
+
+- Added: support for stylelint version 18.
+
 ## v3.0.0
 
 - Breaking: Migrated plugin to ESM.
