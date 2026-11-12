@@ -1,5 +1,3 @@
-import js from "@eslint/js";
-import sortRequires from "eslint-plugin-sort-requires";
 import stylelintConfig from "eslint-config-stylelint";
 import stylelintJestConfig from "eslint-config-stylelint/jest";
 
@@ -14,12 +12,9 @@ export default [
       globals: { testRule: "readonly", testRuleConfigs: "readonly" },
       sourceType: "module",
     },
-    plugins: { "sort-requires": sortRequires },
     rules: {
-      ...js.configs.recommended.rules,
       eqeqeq: "error",
       "no-use-before-define": ["error", "nofunc"],
-      "sort-requires/sort-requires": "error",
       strict: "off",
       "arrow-spacing": "error",
       "no-var": "error",
