@@ -29,6 +29,7 @@
   },
   "files": [
     "index.js",
+    "index.d.ts",
     "utils",
     "CHANGELOG.md",
     "README.md"
